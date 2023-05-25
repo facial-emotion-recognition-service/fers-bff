@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import esense.bff.file.model.DownloadFileResult;
+import esense.bff.file.model.ImagePredictorResult;
 import esense.bff.file.model.UploadFileResult;
 
 
@@ -32,6 +33,10 @@ public class HttpResponseFactory {
 	public ResponseEntity<?> buildFileResponse(DownloadFileResult response) {
 		HttpHeaders headers = httpHeadersFactory.buildDownloadHead(response.getName());
 		return httpResponseFactory.buildFileResponse(headers, response);
+	}
+	
+	public ResponseEntity<ImagePredictorResult> buildSuccess(ImagePredictorResult r) {
+		return httpResponseFactory.buildSuccess(r);
 	}
 
 }
