@@ -16,6 +16,8 @@ import jakarta.annotation.PostConstruct;
 @Service
 public class LocalReportStorageApi {
 
+	private static final String JSON_EXT = ".json";
+
 	@Value("${report.storage.dir}")
 	private String reportsDirPath;
 
@@ -32,6 +34,7 @@ public class LocalReportStorageApi {
 	}
 
 	public DownloadFileResult readFile(String fileName) throws IOException {
+		fileName = (fileName.endsWith(JSON_EXT))? fileName : fileName + JSON_EXT;
 		Path path = Paths.get(reportsDirPath, fileName);
 		long fileSize = path.toFile().length();
 		InputStream body = new FileInputStream(path.toFile());
