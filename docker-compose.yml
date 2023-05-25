@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+
+    esensebff:
+        image: esense-bff:latest
+        hostname: esensebff
+        container_name: esensebff
+        restart: always
+        ports:
+            - 8080:8080
+        environment:
+            - FILE_STORAGE_DIR=\temp\demo
