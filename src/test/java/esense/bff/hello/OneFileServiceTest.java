@@ -64,8 +64,8 @@ public class OneFileServiceTest {
 		Assertions.assertEquals(FILE_NAME, result.getName());
 
 		byte[] bodyBytes = result.getBody().readAllBytes();
-		String actualContent = new String(bodyBytes);
-		Assertions.assertEquals(FILE_TEXT, actualContent);
+		String actual = new String(bodyBytes);
+		Assertions.assertEquals(FILE_TEXT, actual);
 	}
 
 }
