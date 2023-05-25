@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import esense.bff.file.model.DownloadFileResult;
+import esense.bff.file.model.ImagePredictorResult;
 import esense.bff.file.model.UploadFileResult;
 
 @Component
@@ -18,6 +19,10 @@ public class ResponseEntityFactory {
 	}
 
 	public ResponseEntity<UploadFileResult> buildSuccess(UploadFileResult r) {
+		return new ResponseEntity<>(r, HttpStatus.OK);
+	}
+	
+	public ResponseEntity<ImagePredictorResult> buildSuccess(ImagePredictorResult r) {
 		return new ResponseEntity<>(r, HttpStatus.OK);
 	}
 
