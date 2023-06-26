@@ -16,20 +16,27 @@ public class CoordinatesMapper {
 		System.out.println("input2 = " + input2);
 		String input3 = input2.substring(1, input2.length() - 1);
 		System.out.println("input3 = " + input3);
-		List<String> coordinatesAsText = Arrays.asList(input3.split(","));
+		List<String> coordinatesAsText = Arrays.asList(input3.split("["));
 		System.out.println("coordinatesAsText = " + coordinatesAsText);
-		List<List<Integer>> numbers = new ArrayList<>();
-		for (String text : coordinatesAsText) {
+		List<String> coordinatesAsText2 = coordinatesAsText.stream().map(s->s.substring(0, s.length()-1)).toList();
+		System.out.println("coordinatesAsText2 = " + coordinatesAsText2);
+
+		List<List<String>> coordinatesAsText3 = new ArrayList<>();
+		for (String text : coordinatesAsText2) {
 			System.out.println("text = " + text);
-			String str2 = text.substring(1, text.length() - 1);
-			System.out.println("str2 = " + str2);
-			List<String> coordinatesAsText2 = Arrays.asList(str2.split(","));
-			System.out.println("coordinatesAsText2 = " + coordinatesAsText2);
-			List<Integer> coordinatesAsIntegers = coordinatesAsText2.stream().map(s -> Integer.parseInt(s.strip()))
-					.toList();
-			System.out.println("coordinatesAsIntegers = " + coordinatesAsIntegers);
-			numbers.add(coordinatesAsIntegers);
+			List<String> a =Arrays.asList(text.split(","));
+			System.out.println("a = " + a);
+			coordinatesAsText3.add(a);
 		}
+
+		List<List<Integer>> numbers = new ArrayList<>();
+		for (List<String> a : coordinatesAsText3) {
+			System.out.println("a = " + a);
+			List<Integer> b = a.stream().map(s->Integer.parseInt(s)).toList();
+			System.out.println("b = " + b);
+			numbers.add(b);
+		}
+
 		System.out.println("numbers = " + numbers);
 		System.out.println("End CoordinatesMapper.toCoordinatesList");
 		return numbers.stream().map(a -> toRectangle(a)).toList();
