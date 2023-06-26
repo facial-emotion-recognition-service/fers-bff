@@ -9,7 +9,10 @@ public class CoordinatesMapper {
 	public List<Rectangle> toCoordinatesList(String input) {
 		System.out.println("Start CoordinatesMapper.toCoordinatesList");
 		System.out.println("input = " + input);
-		String str1 = input.replace("[", "").replace("]", "");
+		if (input == null || input.length() < 3) {
+			return new ArrayList<>();
+		}
+		String str1 = input.substring(1, input.length() - 1);
 		List<String> coordinatesAsText = Arrays.asList(str1.split(","));
 		System.out.println("coordinatesAsText = " + coordinatesAsText);
 		List<List<Integer>> numbers = new ArrayList<>();
