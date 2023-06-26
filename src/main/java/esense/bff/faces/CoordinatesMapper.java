@@ -21,7 +21,7 @@ public class CoordinatesMapper {
 		List<List<Integer>> numbers = new ArrayList<>();
 		for (String text : coordinatesAsText) {
 			System.out.println("text = " + text);
-			String str2 = text.substring(1, input2.length() - 1);
+			String str2 = text.substring(1, text.length() - 1);
 			System.out.println("str2 = " + str2);
 			List<String> coordinatesAsText2 = Arrays.asList(str2.split(","));
 			System.out.println("coordinatesAsText2 = " + coordinatesAsText2);
