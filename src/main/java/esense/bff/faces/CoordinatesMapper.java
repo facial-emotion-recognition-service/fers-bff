@@ -7,16 +7,24 @@ import java.util.List;
 public class CoordinatesMapper {
 
 	public List<Rectangle> toCoordinatesList(String input) {
+		System.out.println("Start CoordinatesMapper.toCoordinatesList");
+		System.out.println("input = " + input);
 		String str1 = input.replace("[", "").replace("]", "");
 		List<String> coordinatesAsText = Arrays.asList(str1.split(","));
+		System.out.println("coordinatesAsText = " + coordinatesAsText);
 		List<List<Integer>> numbers = new ArrayList<>();
 		for (String text : coordinatesAsText) {
+			System.out.println("text = " + text);
 			String str2 = text.replace("[", "").replace("]", "");
 			List<String> coordinatesAsText2 = Arrays.asList(str2.split(","));
+			System.out.println("coordinatesAsText2 = " + coordinatesAsText2);
 			List<Integer> coordinatesAsIntegers = coordinatesAsText2.stream().map(s -> Integer.parseInt(s.strip()))
 					.toList();
+			System.out.println("coordinatesAsIntegers = " + coordinatesAsIntegers);
 			numbers.add(coordinatesAsIntegers);
 		}
+		System.out.println("numbers = " + numbers);
+		System.out.println("End CoordinatesMapper.toCoordinatesList");
 		return numbers.stream().map(a -> toRectangle(a)).toList();
 	}
 
