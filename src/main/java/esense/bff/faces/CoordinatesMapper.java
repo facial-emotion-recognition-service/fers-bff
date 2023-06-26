@@ -13,7 +13,7 @@ public class CoordinatesMapper {
 		for (String text : coordinatesAsText) {
 			String str2 = text.replace("[","").replace("]","");
 			List<String> coordinatesAsText2 = Arrays.asList(str2.split(","));
-			List<Integer> coordinatesAsIntegers = coordinatesAsText2.stream().map(s->Integer.parseInt(s)).toList();
+			List<Integer> coordinatesAsIntegers = coordinatesAsText2.stream().map(s->Integer.parseInt(s.strip())).toList();
 			result.add(coordinatesAsIntegers);
 		}
 		return result;
