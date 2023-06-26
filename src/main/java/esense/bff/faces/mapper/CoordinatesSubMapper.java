@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import esense.bff.faces.Rectangle;
+import esense.bff.faces.Rectangle2Points;
 
 public class CoordinatesSubMapper {
 
@@ -53,12 +54,24 @@ public class CoordinatesSubMapper {
 	}
 
 
-	public List<Rectangle> parseIntegerCoordinatesIntoRectangle(List<List<Integer>> coordinatesAsIntegers) {
-		return coordinatesAsIntegers.stream().map(a -> toRectangle(a)).toList();
+	public List<Rectangle2Points> parseIntegerCoordinatesIntoRectangle2Points(List<List<Integer>> coordinatesAsIntegers) {
+		return coordinatesAsIntegers.stream().map(a -> toRectangle2Points(a)).toList();
 	}
 
-	private Rectangle toRectangle(List<Integer> a) {
-		return new Rectangle(a.get(0), a.get(1), a.get(2), a.get(3));
+	private Rectangle2Points toRectangle2Points(List<Integer> a) {
+		return new Rectangle2Points(a.get(0), a.get(1), a.get(2), a.get(3));
+	}
+
+	public List<Rectangle> mapRectangle2PointsIntoRectangle(List<Rectangle2Points> points) {
+		return points.stream().map(a -> toRectangle(a)).toList();
+	}
+
+	private Rectangle toRectangle(Rectangle2Points a) {
+		int x = a.getLeft(); 
+		int y = a.getTop(); 
+		int w = a.getRight() - a.getLeft(); 
+		int h = a.getBottom() - a.getTop();
+		return new Rectangle(x, y, w, h);
 	}
 
 }
