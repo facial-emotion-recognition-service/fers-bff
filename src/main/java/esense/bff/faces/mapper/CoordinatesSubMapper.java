@@ -59,6 +59,7 @@ public class CoordinatesSubMapper {
 	}
 
 	private Rectangle2Points toRectangle2Points(List<Integer> a) {
+		//top, right, bottom, left
 		return new Rectangle2Points(a.get(0), a.get(1), a.get(2), a.get(3));
 	}
 
