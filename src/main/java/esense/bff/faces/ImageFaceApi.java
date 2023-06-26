@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import esense.bff.faces.mapper.CoordinatesMapper;
 import esense.bff.file.model.ImageFacesResult;
 
 @Component
