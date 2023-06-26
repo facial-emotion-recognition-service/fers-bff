@@ -11,7 +11,6 @@ import esense.bff.file.model.ImageFacesResult;
 @Component
 public class ImageFaceApi {
 
-	// http://192.168.2.87:8000
 	@Value("${url.base.image.face}")
 	private String urlBaseForImageFace;
 

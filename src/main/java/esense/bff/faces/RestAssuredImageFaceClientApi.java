@@ -9,7 +9,6 @@ import io.restassured.response.Response;
 @Component
 public class RestAssuredImageFaceClientApi {
 
-	//http://192.168.2.87:8000/emotions/image.png
 	public String getFacesFromImage(String url) {
 		Response response = RestAssured.given().when().put(url).andReturn();
 		Integer ok = HttpStatus.OK.value();// 
