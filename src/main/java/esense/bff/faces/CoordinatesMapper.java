@@ -14,9 +14,9 @@ public class CoordinatesMapper {
 		}
 		String input2 = input.strip();
 		System.out.println("input2 = " + input2);
-		String str1 = input2.substring(1, input2.length() - 1);
-		System.out.println("str1 = " + str1);
-		List<String> coordinatesAsText = Arrays.asList(str1.split(","));
+		String input3 = input2.substring(1, input2.length() - 1);
+		System.out.println("input3 = " + input3);
+		List<String> coordinatesAsText = Arrays.asList(input3.split(","));
 		System.out.println("coordinatesAsText = " + coordinatesAsText);
 		List<List<Integer>> numbers = new ArrayList<>();
 		for (String text : coordinatesAsText) {
