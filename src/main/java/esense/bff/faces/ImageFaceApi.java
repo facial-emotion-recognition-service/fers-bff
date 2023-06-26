@@ -25,7 +25,7 @@ public class ImageFaceApi {
 	public ImageFacesResult getFacesFromImage(String uid) {
 		String url = ImageFaceUrlFactory.buildUrl(urlBaseForImageFace, uid);
 		String text = clientApi.getFacesFromImage(url);
-		List<List<Integer>> coordinates = mapper.toCoordinatesList(text);
+		List<Rectangle> coordinates = mapper.toCoordinatesList(text);
 		return new ImageFacesResult(uid, coordinates);
 	}
 

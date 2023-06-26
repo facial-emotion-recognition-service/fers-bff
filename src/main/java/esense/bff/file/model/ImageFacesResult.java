@@ -2,12 +2,14 @@ package esense.bff.file.model;
 
 import java.util.List;
 
+import esense.bff.faces.Rectangle;
+
 public class ImageFacesResult {
 
 	private String uid;
-	private List<List<Integer>> coordinates;
+	private List<Rectangle> coordinates;
 
-	public ImageFacesResult(String uid, List<List<Integer>> coordinates) {
+	public ImageFacesResult(String uid, List<Rectangle> coordinates) {
 		this.uid = uid;
 		this.coordinates = coordinates;
 	}
@@ -20,11 +22,11 @@ public class ImageFacesResult {
 		this.uid = uid;
 	}
 
-	public List<List<Integer>> getCoordinates() {
+	public List<Rectangle> getCoordinates() {
 		return coordinates;
 	}
 
-	public void setCoordinates(List<List<Integer>> coordinates) {
+	public void setCoordinates(List<Rectangle> coordinates) {
 		this.coordinates = coordinates;
 	}
 
