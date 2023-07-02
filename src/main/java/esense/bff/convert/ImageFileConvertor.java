@@ -19,6 +19,11 @@ public class ImageFileConvertor {
 	private FileService fileService;
 	private ImageDataConvertor imageConvertor;
 
+	public ImageFileConvertor(FileService fileService, ImageDataConvertor imageConvertor) {
+		this.fileService = fileService;
+		this.imageConvertor = imageConvertor;
+	}
+
 	public UploadFileResult convert(String inUid) throws IOException {
 		logger.info("ImageFileConvertor.convert 1: inUid = " + inUid);
 		DownloadFileResult download = fileService.readFile(inUid);
