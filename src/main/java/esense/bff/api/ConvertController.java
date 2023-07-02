@@ -1,5 +1,7 @@
 package esense.bff.api;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,8 @@ import io.swagger.v3.oas.annotations.Operation;
 @RequestMapping("/api/v1/convert")
 public class ConvertController {
 
+    private static Logger logger = LogManager.getLogger(ConvertController.class);
+
 	private final ImageConvertApp imageConvertApp;
 
 	public ConvertController(ImageConvertApp imageConvertApp) {
@@ -23,6 +27,7 @@ public class ConvertController {
 	@Operation(summary = "Convert file into a jpg image")
 	public ResponseEntity<?> createSubImage(
 			@PathVariable String uid) {
+		logger.info("ConvertController.convert: uid = " + uid);
 		return imageConvertApp.convert(uid);
 	}
 
