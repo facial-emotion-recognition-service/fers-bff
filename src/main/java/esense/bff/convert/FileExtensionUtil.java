@@ -14,7 +14,7 @@ public class FileExtensionUtil {
 		}
 		int index = pindex.get();
 		String fileNameWithoutExtension = filename.substring(0, index);
-		return fileNameWithoutExtension + after;
+		return fileNameWithoutExtension + "." + after;
 	}
 	
 	private static Optional<Integer> getExtensionIndex(String filename) {
