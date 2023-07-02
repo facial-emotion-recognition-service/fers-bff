@@ -13,7 +13,7 @@ import esense.bff.file.model.content.InputStreamContentSupplier;
 
 @Service
 public class ImageFileConvertor {
-	
+
     private static Logger logger = LogManager.getLogger(ImageFileConvertor.class);
 
 	private FileService fileService;
@@ -24,12 +24,13 @@ public class ImageFileConvertor {
 		this.imageConvertor = imageConvertor;
 	}
 
-	public UploadFileResult convert(String inUid) throws IOException {
+	public UploadFileResult convert(ConvertImageFormatRequest request) throws IOException {
+		String inUid = request.getSourecFileUid();
 		logger.info("ImageFileConvertor.convert 1: inUid = " + inUid);
 		DownloadFileResult download = fileService.readFile(inUid);
 		logger.info("ImageFileConvertor.convert 2: download.name = " + download.getName());
 		InputStreamContentSupplier content = imageConvertor.convert(download);
-		logger.info("ImageFileConvertor.convert 3: inUid = " + inUid);
+		logger.info("ImageFileConvertor.convert 3: inUid = " + request);
 		return fileService.writeFile(download.getName(), content); // TODO
 	}
 

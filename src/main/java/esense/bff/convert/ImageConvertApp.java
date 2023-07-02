@@ -18,10 +18,11 @@ public class ImageConvertApp {
 		this.fileConvertor = fileConvertor;
 	}
 
-	public ResponseEntity<?> convert(String inUid) {
+	public ResponseEntity<?> convert(ConvertImageFormatRequest request) {
 		try {
+			String inUid = request.getSourecFileUid();
 			logger.info("ImageConvertApp.convert 1: inUid = " + inUid);
-			UploadFileResult result = fileConvertor.convert(inUid);
+			UploadFileResult result = fileConvertor.convert(request);
 			logger.info("ImageConvertApp.convert 2: inUid = " + inUid + ", outUid = " + result.getUid());
 			return new ResponseEntity<>(result, HttpStatus.OK);
 		} catch (Exception e) {

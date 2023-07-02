@@ -28,7 +28,7 @@ public class ConvertController {
 	@Operation(summary = "Convert file into image")
 	public ResponseEntity<?> convert(@RequestBody ConvertImageFormatRequest request) {
 		logger.info("ConvertController.convert: uid = " + request);
-		return imageConvertApp.convert(request.getUid());
+		return imageConvertApp.convert(request);
 	}
 
 }
