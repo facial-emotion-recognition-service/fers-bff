@@ -17,7 +17,9 @@ public class ImageConvertApp {
 
 	public ResponseEntity<?> convert(String inUid) {
 		try {
+			System.out.println("ImageConvertApp.convert 1: inUid = " + inUid);
 			UploadFileResult result = fileConvertor.convert(inUid);
+			System.out.println("ImageConvertApp.convert 2: inUid = " + inUid + ", outUid = " + result.getUid());
 			return new ResponseEntity<>(result, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

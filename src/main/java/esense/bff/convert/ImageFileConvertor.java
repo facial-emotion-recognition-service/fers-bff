@@ -16,8 +16,11 @@ public class ImageFileConvertor {
 	private ImageDataConvertor imageConvertor;
 
 	public UploadFileResult convert(String inUid) throws IOException {
+		System.out.println("ImageFileConvertor.convert 1: inUid = " + inUid);
 		DownloadFileResult download = fileService.readFile(inUid);
+		System.out.println("ImageFileConvertor.convert 2: download.name = " + download.getName());
 		InputStreamContentSupplier content = imageConvertor.convert(download);
+		System.out.println("ImageFileConvertor.convert 3: inUid = " + inUid);
 		return fileService.writeFile(download.getName(), content); // TODO
 	}
 

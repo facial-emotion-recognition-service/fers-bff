@@ -17,8 +17,11 @@ public class StreamImageConvertor {
 	}
 
 	public InputStream convert(InputStream before) {
+		System.out.println("StreamImageConvertor.convert 1");
 		BufferedImage inputImage = streamConvertor.toBufferedImage(before);
+		System.out.println("StreamImageConvertor.convert 2");
 		BufferedImage outputImage = imageConvertor.convertBufferedImage(inputImage);
+		System.out.println("StreamImageConvertor.convert 3");
 		return streamConvertor.toInputStream(outputImage, "jpg"); // TODO
 	}
 

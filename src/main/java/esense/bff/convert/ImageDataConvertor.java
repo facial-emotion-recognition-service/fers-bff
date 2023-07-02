@@ -18,7 +18,9 @@ public class ImageDataConvertor {
 
 	public InputStreamContentSupplier convert(DownloadFileResult download) {
 		InputStream before = download.getBody();
+		System.out.println("ImageDataConvertor.convert 1: download.name = " + download.getName());
 		InputStream after = imageConvertor.convert(before);
+		System.out.println("ImageDataConvertor.convert 2: download.name = " + download.getName());
 		return new InputStreamContentSupplier(after);
 	}
 
