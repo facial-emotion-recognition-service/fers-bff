@@ -31,7 +31,8 @@ public class ImageFileConvertor {
 		logger.info("ImageFileConvertor.convert 2: download.name = " + download.getName());
 		InputStreamContentSupplier content = imageConvertor.convert(download);
 		logger.info("ImageFileConvertor.convert 3: inUid = " + request);
-		return fileService.writeFile(download.getName(), content); // TODO
+		String targetName = FileExtensionUtil.replaceExtension(download.getName(), request.getTargetImageFormat());
+		return fileService.writeFile(targetName, content); // TODO
 	}
 
 }
