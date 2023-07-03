@@ -20,13 +20,13 @@ public class StreamImageConvertor {
 		this.imageConvertor = imageConvertor;
 	}
 
-	public InputStream convert(InputStream before) {
+	public InputStream convert(InputStream before, String target) {
 		logger.info("StreamImageConvertor.convert 1");
 		BufferedImage inputImage = streamConvertor.toBufferedImage(before);
 		logger.info("StreamImageConvertor.convert 2");
 		BufferedImage outputImage = imageConvertor.convertBufferedImage(inputImage);
 		logger.info("StreamImageConvertor.convert 3");
-		return streamConvertor.toInputStream(outputImage, "jpg"); // TODO
+		return streamConvertor.toInputStream(outputImage, target);
 	}
 
 }

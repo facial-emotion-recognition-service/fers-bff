@@ -26,10 +26,11 @@ public class ImageFileConvertor {
 
 	public UploadFileResult convert(ConvertImageFormatRequest request) throws IOException {
 		String inUid = request.getSourecFileUid();
+		String target = request.getTargetImageFormat();
 		logger.info("ImageFileConvertor.convert 1: inUid = " + inUid);
 		DownloadFileResult download = fileService.readFile(inUid);
 		logger.info("ImageFileConvertor.convert 2: download.name = " + download.getName());
-		InputStreamContentSupplier content = imageConvertor.convert(download);
+		InputStreamContentSupplier content = imageConvertor.convert(download, target);
 		logger.info("ImageFileConvertor.convert 3: inUid = " + request);
 		String targetName = FileExtensionUtil.replaceExtension(download.getName(), request.getTargetImageFormat());
 		return fileService.writeFile(targetName, content); // TODO
