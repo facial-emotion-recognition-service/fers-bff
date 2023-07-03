@@ -26,7 +26,7 @@ public class ImageFileConvertor {
 		DownloadFileResult download = fileService.readFile(inUid);
 		InputStreamContentSupplier content = imageConvertor.convert(download, target);
 		String targetName = FileExtensionUtil.replaceExtension(download.getName(), request.getTargetImageFormat());
-		return fileService.writeFile(targetName, content); // TODO
+		return fileService.writeFile(targetName, content);
 	}
 
 }
