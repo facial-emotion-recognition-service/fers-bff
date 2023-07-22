@@ -1,2 +1,4 @@
-# esense-bff
-A Backend for Frontend for project esense
+# fers-bff
+Back-end for the front-end of project Facial Emotion Recognition Sevice
+
+BFF stands for "Backend For Frontend"
