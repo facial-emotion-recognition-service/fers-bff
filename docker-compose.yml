@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
 
-    esensebff:
-        image: esense-bff:latest
-        hostname: esensebff
-        container_name: esensebff
+    fers-bff:
+        image: fers-bff:latest
+        hostname: fers-bff
+        container_name: fers-bff
         restart: always
         ports:
             - 8080:8080
