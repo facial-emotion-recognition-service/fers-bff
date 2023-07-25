@@ -30,4 +30,9 @@ public class ImageFacesResult {
 		this.coordinates = coordinates;
 	}
 
+	@Override
+	public String toString() {
+		return "ImageFacesResult [uid=" + uid + ", coordinates=" + coordinates + "]";
+	}
+
 }
