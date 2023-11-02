@@ -1,8 +1,9 @@
 ### MacOS
 .DS_Store
 
-### Auto generate files
+### Auto generated files
 target/
+C:\\tmp**
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
